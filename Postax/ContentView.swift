@@ -15,10 +15,16 @@ struct ContentView: View {
     @State private var stateTaxes = 0.0
     @State private var net = 0.0
     @State private var paycheck = 0.0
+    @State private var SocialSecurity = FedTaxBrackets.SSPercent
+    @State private var Medicare = FedTaxBrackets.medicarePercent
     
     var body: some View {
         VStack {
-            Text("Taxes: \(paycheck)")
+            Text("Federal: \(fedTaxes / 26)")
+            Text("Social Security: \((annual * SocialSecurity) / 26)")
+            Text("Medicare: \((annual * Medicare) / 26)")
+            Text("Annual: \(net)")
+            Text("Paycheck: \(paycheck)")
                 .padding()
             Button("Calculate") {
                 fedTaxes = FedTaxBrackets.FedTaxAmount(from: annual)
