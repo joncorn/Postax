@@ -23,12 +23,13 @@ struct ContentView: View {
     @FocusState private var amountIsFocused: Bool
     
     var body: some View {
-        Section {
-            TextField("Salary", value: $annual, format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                .keyboardType(.decimalPad)
-                .focused($amountIsFocused)
-        }
         VStack {
+            Section {
+                TextField("Salary", value: $annual, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    .keyboardType(.decimalPad)
+                    .focused($amountIsFocused)
+            }
+            Text("State: \(stateTaxes / 26)")
             Text("Federal: \(fedTaxes / 26)")
             Text("Social Security: \(ss)")
             Text("Medicare: \(medi)")
@@ -40,6 +41,7 @@ struct ContentView: View {
             
             Button("Calculate") {
                 fedTaxes = FedTaxBrackets.FedTaxAmount(from: annual)
+                stateTaxes = StateTaxBrackets.Connecticut.TaxAmount(from: annual)
                 medi = (annual * Medicare) / 26
                 ss = (annual * SocialSecurity) / 26
                 net = annual - fedTaxes

@@ -10,12 +10,6 @@ import Foundation
 // State tax brackets, sorted alphabetically
 struct StateTaxBrackets {
     
-    var someDict = [["CA", StateTaxBrackets.California.TaxAmount(from: 5000),
-                    "AL", Alabama.TaxAmount(from: 5000)],
-    ]
-    
-    
-    
     // MARK: - Alabama
     struct Alabama {
         struct first {
@@ -32,7 +26,6 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
-            
             var firstTaxed  : Double = 0
             var secondTaxed : Double = 0
             var thirdTaxed  : Double = 0
@@ -86,17 +79,38 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
+            var firstTaxed  : Double = 0
+            var secondTaxed : Double = 0
+            var thirdTaxed  : Double = 0
+            var fourthTaxed : Double = 0
             
             var stateTax: Double = 0
             
             if annual <= first.threshold {
-                stateTax = annual * first.percent
+                
+                stateTax += annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual <= third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
+                
             } else if annual > fourth.threshold {
-                stateTax = annual * fourth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (annual - third.threshold) * fourth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed
+                
             }
             
             return stateTax
@@ -119,15 +133,29 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
+            var firstTaxed  : Double = 0
+            var secondTaxed : Double = 0
+            var thirdTaxed  : Double = 0
             
             var stateTax: Double = 0
             
             if annual <= first.threshold {
-                stateTax = annual * first.percent
+                
+                stateTax += annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual > third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
+                
             }
             
             return stateTax
@@ -178,29 +206,112 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
+            var firstTaxed   : Double = 0
+            var secondTaxed  : Double = 0
+            var thirdTaxed   : Double = 0
+            var fourthTaxed  : Double = 0
+            var fifthTaxed   : Double = 0
+            var sixthTaxed   : Double = 0
+            var seventhTaxed : Double = 0
+            var eighthTaxed  : Double = 0
+            var ninthTaxed   : Double = 0
+            var tenthTaxed   : Double = 0
             
             var stateTax: Double = 0
             
             if annual <= first.threshold {
+                
                 stateTax = annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual <= third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
+                
             } else if annual <= fourth.threshold {
-                stateTax = annual * fourth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (annual - third.threshold) * fourth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed
+                
             } else if annual <= fifth.threshold {
-                stateTax = annual * fifth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (annual - fourth.threshold) * fifth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed
+                
             } else if annual <= sixth.threshold {
-                stateTax = annual * sixth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (annual - fifth.threshold) * sixth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed
+                
             } else if annual <= seventh.threshold {
-                stateTax = annual * seventh.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (sixth.threshold - fifth.threshold)  * sixth.percent
+                seventhTaxed = (annual - sixth.threshold) * seventh.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed + seventhTaxed
+                
             } else if annual <= eighth.threshold {
-                stateTax = annual * eighth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (sixth.threshold - fifth.threshold)  * sixth.percent
+                seventhTaxed = (seventh.threshold - sixth.threshold) * seventh.percent
+                eighthTaxed  = (annual - seventh.threshold) * eighth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed + seventhTaxed + eighthTaxed
+                
             } else if annual <= ninth.threshold {
-                stateTax = annual * ninth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (sixth.threshold - fifth.threshold)  * sixth.percent
+                seventhTaxed = (seventh.threshold - sixth.threshold) * seventh.percent
+                eighthTaxed  = (eighth.threshold - seventh.threshold) * eighth.percent
+                ninthTaxed   = (annual - eighth.threshold) * ninth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed + seventhTaxed + eighthTaxed + ninthTaxed
+                
             } else if annual > tenth.threshold {
-                stateTax = annual * tenth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (sixth.threshold - fifth.threshold)  * sixth.percent
+                seventhTaxed = (seventh.threshold - sixth.threshold) * seventh.percent
+                eighthTaxed  = (eighth.threshold - seventh.threshold) * eighth.percent
+                ninthTaxed   = (ninth.threshold - eighth.threshold) * ninth.percent
+                tenthTaxed   = (annual - ninth.threshold) * tenth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed + seventhTaxed + eighthTaxed + ninthTaxed + tenthTaxed
             }
             
             return stateTax
@@ -253,23 +364,70 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
+            var firstTaxed   : Double = 0
+            var secondTaxed  : Double = 0
+            var thirdTaxed   : Double = 0
+            var fourthTaxed  : Double = 0
+            var fifthTaxed   : Double = 0
+            var sixthTaxed   : Double = 0
+            var seventhTaxed : Double = 0
             
             var stateTax: Double = 0
             
             if annual <= first.threshold {
+                
                 stateTax = annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual <= third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
+                
             } else if annual <= fourth.threshold {
-                stateTax = annual * fourth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (annual - third.threshold) * fourth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed
+                
             } else if annual <= fifth.threshold {
-                stateTax = annual * fifth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (annual - fourth.threshold) * fifth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed
+                
             } else if annual <= sixth.threshold {
-                stateTax = annual * sixth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (annual - fifth.threshold) * sixth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed
+                
             } else if annual > seventh.threshold {
-                stateTax = annual * seventh.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (sixth.threshold - fifth.threshold)  * sixth.percent
+                seventhTaxed = (annual - sixth.threshold) * seventh.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed + seventhTaxed
             }
             
             return stateTax
@@ -304,23 +462,59 @@ struct StateTaxBrackets {
         }
         
         static func TaxAmount(from annual: Double) -> Double {
+            var firstTaxed   : Double = 0
+            var secondTaxed  : Double = 0
+            var thirdTaxed   : Double = 0
+            var fourthTaxed  : Double = 0
+            var fifthTaxed   : Double = 0
+            var sixthTaxed   : Double = 0
             
             var stateTax: Double = 0
             
-            if annual <= 2000 {
-                stateTax = 0
-            } else if annual <= first.threshold && annual > 2000 {
+            if annual <= first.threshold {
+                
                 stateTax = annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual <= third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
+                
             } else if annual <= fourth.threshold {
-                stateTax = annual * fourth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (annual - third.threshold) * fourth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed
+                
             } else if annual <= fifth.threshold {
-                stateTax = annual * fifth.percent
-            } else if annual > sixth.threshold {
-                stateTax = annual * sixth.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (annual - fourth.threshold) * fifth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed
+                
+            } else if annual <= sixth.threshold {
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (third.threshold - second.threshold) * third.percent
+                fourthTaxed  = (fourth.threshold - third.threshold) * fourth.percent
+                fifthTaxed   = (fifth.threshold - fourth.threshold) * fifth.percent
+                sixthTaxed   = (annual - fifth.threshold) * sixth.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed + fourthTaxed + fifthTaxed + sixthTaxed
+                
             }
             
             return stateTax
@@ -482,7 +676,7 @@ struct StateTaxBrackets {
     struct RhodeIsland {
         
     }
-
+    
     // MARK: - South Carolina
     struct SouthCarolina {
         
