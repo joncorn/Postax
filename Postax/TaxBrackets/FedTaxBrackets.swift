@@ -45,7 +45,6 @@ struct FedTaxBrackets {
     
     // returns federal tax amount as Double
     static func FedTaxAmount(from annual: Double) -> Double {
-        
         let SSTax = annual * SSPercent
         let medicareTax = annual * medicarePercent
         

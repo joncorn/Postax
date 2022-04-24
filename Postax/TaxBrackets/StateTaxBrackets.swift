@@ -10,6 +10,12 @@ import Foundation
 // State tax brackets, sorted alphabetically
 struct StateTaxBrackets {
     
+    var someDict = [["CA", StateTaxBrackets.California.TaxAmount(from: 5000),
+                    "AL", Alabama.TaxAmount(from: 5000)],
+    ]
+    
+    
+    
     // MARK: - Alabama
     struct Alabama {
         struct first {
@@ -27,14 +33,28 @@ struct StateTaxBrackets {
         
         static func TaxAmount(from annual: Double) -> Double {
             
+            var firstTaxed  : Double = 0
+            var secondTaxed : Double = 0
+            var thirdTaxed  : Double = 0
+            
             var stateTax: Double = 0
             
             if annual <= first.threshold {
-                stateTax = annual * first.percent
+                
+                stateTax += annual * first.percent
+                
             } else if annual <= second.threshold {
-                stateTax = annual * second.percent
+                firstTaxed = first.threshold * first.percent
+                secondTaxed  = (annual - first.threshold) * second.percent
+                
+                stateTax += firstTaxed + secondTaxed
+                
             } else if annual > third.threshold {
-                stateTax = annual * third.percent
+                firstTaxed   = first.threshold * first.percent
+                secondTaxed  = (second.threshold - first.threshold) * second.percent
+                thirdTaxed   = (annual - second.threshold) * third.percent
+                
+                stateTax += firstTaxed + secondTaxed + thirdTaxed
             }
             
             return stateTax
