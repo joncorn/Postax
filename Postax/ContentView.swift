@@ -41,7 +41,7 @@ struct ContentView: View {
             
             Button("Calculate") {
                 fedTaxes = FedTaxBrackets.FedTaxAmount(from: annual)
-                stateTaxes = StateTaxBrackets.Connecticut.TaxAmount(from: annual)
+//                stateTaxes = StateTaxBrackets.Connecticut.TaxAmount(from: annual)
                 medi = (annual * Medicare) / 26
                 ss = (annual * SocialSecurity) / 26
                 net = annual - fedTaxes

@@ -58,7 +58,6 @@
 				7C2966BF28092D3F00A6A426 /* TaxBrackets */,
 				7C2966AE2808F33300A6A426 /* PostaxApp.swift */,
 				7C2966B02808F33300A6A426 /* ContentView.swift */,
-				7C2966B22808F33500A6A426 /* Assets.xcassets */,
 				7C2966B42808F33500A6A426 /* Preview Content */,
 			);
 			path = Postax;
@@ -77,6 +76,7 @@
 			children = (
 				7C2966BD28092C1400A6A426 /* FedTaxBrackets.swift */,
 				7C2966C028092D6000A6A426 /* StateTaxBrackets.swift */,
+				7C2966B22808F33500A6A426 /* Assets.xcassets */,
 			);
 			path = TaxBrackets;
 			sourceTree = "<group>";
