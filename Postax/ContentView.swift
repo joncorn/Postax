@@ -7,47 +7,40 @@
 
 import SwiftUI
 
+//    .frame(maxWidth: .infinity)
+//    .padding(.vertical, 20)
+//    .background(.regularMaterial)
+//    .clipShape(RoundedRectangle(cornerRadius: 20))
+
+enum CalcButtons: String {
+    case one = "1"
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    case eight = "8"
+    case nine = "9"
+    case zero = "0"
+    case dot = "."
+    case back = "<"
+}
+
 struct ContentView: View {
     
-    @State private var annual = 0.0
-    @State private var taxes = 0.0
-    @State private var fedTaxes = 0.0
-    @State private var stateTaxes = 0.0
-    @State private var net = 0.0
-    @State private var paycheck = 0.0
-    @State private var SocialSecurity = FedTaxBrackets.SSPercent
-    @State private var Medicare = FedTaxBrackets.medicarePercent
-    @State private var medi = 0.0
-    @State private var ss = 0.0
-    @State private var grossPaycheck = 0.0
-    @FocusState private var amountIsFocused: Bool
+    let buttons: [[CalcButtons]] = [
+        [.one, .two, .three],
+        [.four, .five, .six],
+        [.seven, .eight, .nine],
+        [.dot, .zero, .back]
+    ]
     
     var body: some View {
-        VStack {
-            Section {
-                TextField("Salary", value: $annual, format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                    .keyboardType(.decimalPad)
-                    .focused($amountIsFocused)
-            }
-            Text("State: \(stateTaxes / 26)")
-            Text("Federal: \(fedTaxes / 26)")
-            Text("Social Security: \(ss)")
-            Text("Medicare: \(medi)")
-            Text("Annual: \(net)")
-            Text("Before Taxes: \(grossPaycheck)")
-                .padding()
-            Text("Paycheck: \(paycheck)")
-                .padding()
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.purple, .pink]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             
-            Button("Calculate") {
-                fedTaxes = FedTaxBrackets.FedTaxAmount(from: annual)
-//                stateTaxes = StateTaxBrackets.Connecticut.TaxAmount(from: annual)
-                medi = (annual * Medicare) / 26
-                ss = (annual * SocialSecurity) / 26
-                net = annual - fedTaxes
-                paycheck = net / 26
-                grossPaycheck = annual / 26
-            }
         }
     }
 }
@@ -57,3 +50,55 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+/// for each method
+//HStack {
+//    ForEach(buttons, id: \.self) { row in
+//        HStack {
+//            ForEach(row, id: \.self) { item in
+//                Button(action: {
+//
+//                }, label: {
+//                    Text(item.rawValue)
+//                        .font(.system(size: 32))
+//                        .frame(width: 70, height: 70)
+//                        .background(Color.orange)
+//                        .foregroundColor(.white)
+//                        .cornerRadius(35)
+//                })
+//            }
+//        }
+//    }
+//}
+
+///the thin material stuff
+//VStack {
+//    Text("hi")
+//}
+//Spacer()
+//VStack {
+//    // Text display
+//    Text("Postax")
+//        .bold()
+//        .font(.system(size: 64))
+//        .foregroundColor(.white)
+//        .padding()
+//    Text("$0")
+//        .bold()
+//        .font(.system(size: 64))
+//        .foregroundColor(.white)
+//    Spacer()
+//} // VStack
+//.frame(
+//    minWidth: 0,
+//    maxWidth: .infinity,
+//    minHeight: 0,
+//    maxHeight: 500,
+//    alignment: .center
+//)
+//.padding(.vertical, 20)
+//.background(.thinMaterial)
+//.clipShape(RoundedRectangle(cornerRadius: 20))
+//.padding()
+
