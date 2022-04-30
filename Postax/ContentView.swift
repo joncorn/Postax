@@ -73,6 +73,7 @@ struct ContentView_Previews: PreviewProvider {
 //}
 
 ///the thin material stuff
+/// Use thin material for keypad and/or sections
 //VStack {
 //    Text("hi")
 //}
