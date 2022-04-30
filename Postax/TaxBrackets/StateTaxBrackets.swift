@@ -33,11 +33,10 @@ struct StateTaxBrackets {
             var stateTax: Double = 0
             
             if annual <= first.threshold {
-                
                 stateTax += annual * first.percent
                 
             } else if annual <= second.threshold {
-                firstTaxed = first.threshold * first.percent
+                firstTaxed   = first.threshold * first.percent
                 secondTaxed  = (annual - first.threshold) * second.percent
                 
                 stateTax += firstTaxed + secondTaxed
