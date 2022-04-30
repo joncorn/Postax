@@ -12,29 +12,29 @@ import SwiftUI
 //    .background(.regularMaterial)
 //    .clipShape(RoundedRectangle(cornerRadius: 20))
 
-enum CalcButtons: String {
-    case one = "1"
-    case two = "2"
-    case three = "3"
-    case four = "4"
-    case five = "5"
-    case six = "6"
-    case seven = "7"
-    case eight = "8"
-    case nine = "9"
-    case zero = "0"
-    case dot = "."
-    case back = "<"
-}
+//enum CalcButtons: String {
+//    case one = "1"
+//    case two = "2"
+//    case three = "3"
+//    case four = "4"
+//    case five = "5"
+//    case six = "6"
+//    case seven = "7"
+//    case eight = "8"
+//    case nine = "9"
+//    case zero = "0"
+//    case dot = "."
+//    case back = "<"
+//}
 
 struct ContentView: View {
     
-    let buttons: [[CalcButtons]] = [
-        [.one, .two, .three],
-        [.four, .five, .six],
-        [.seven, .eight, .nine],
-        [.dot, .zero, .back]
-    ]
+//    let buttons: [[CalcButtons]] = [
+//        [.one, .two, .three],
+//        [.four, .five, .six],
+//        [.seven, .eight, .nine],
+//        [.dot, .zero, .back]
+//    ]
     
     var body: some View {
         ZStack {
