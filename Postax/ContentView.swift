@@ -29,13 +29,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-//    let buttons: [[CalcButtons]] = [
-//        [.one, .two, .three],
-//        [.four, .five, .six],
-//        [.seven, .eight, .nine],
-//        [.dot, .zero, .back]
-//    ]
-    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.purple, .pink]), startPoint: .top, endPoint: .bottom)
@@ -52,54 +45,4 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-/// for each method
-//HStack {
-//    ForEach(buttons, id: \.self) { row in
-//        HStack {
-//            ForEach(row, id: \.self) { item in
-//                Button(action: {
-//
-//                }, label: {
-//                    Text(item.rawValue)
-//                        .font(.system(size: 32))
-//                        .frame(width: 70, height: 70)
-//                        .background(Color.orange)
-//                        .foregroundColor(.white)
-//                        .cornerRadius(35)
-//                })
-//            }
-//        }
-//    }
-//}
-
-///the thin material stuff
-/// Use thin material for keypad and/or sections
-//VStack {
-//    Text("hi")
-//}
-//Spacer()
-//VStack {
-//    // Text display
-//    Text("Postax")
-//        .bold()
-//        .font(.system(size: 64))
-//        .foregroundColor(.white)
-//        .padding()
-//    Text("$0")
-//        .bold()
-//        .font(.system(size: 64))
-//        .foregroundColor(.white)
-//    Spacer()
-//} // VStack
-//.frame(
-//    minWidth: 0,
-//    maxWidth: .infinity,
-//    minHeight: 0,
-//    maxHeight: 500,
-//    alignment: .center
-//)
-//.padding(.vertical, 20)
-//.background(.thinMaterial)
-//.clipShape(RoundedRectangle(cornerRadius: 20))
-//.padding()
 

@@ -11,8 +11,8 @@
 		7C2966B12808F33300A6A426 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966B02808F33300A6A426 /* ContentView.swift */; };
 		7C2966B32808F33500A6A426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2966B22808F33500A6A426 /* Assets.xcassets */; };
 		7C2966B62808F33500A6A426 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2966B52808F33500A6A426 /* Preview Assets.xcassets */; };
-		7C2966BE28092C1400A6A426 /* FedTaxBrackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966BD28092C1400A6A426 /* FedTaxBrackets.swift */; };
-		7C2966C128092D6000A6A426 /* StateTaxBrackets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966C028092D6000A6A426 /* StateTaxBrackets.swift */; };
+		7C2966BE28092C1400A6A426 /* PTFedTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966BD28092C1400A6A426 /* PTFedTax.swift */; };
+		7C2966C128092D6000A6A426 /* PTStateTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966C028092D6000A6A426 /* PTStateTax.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		7C2966B02808F33300A6A426 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7C2966B22808F33500A6A426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C2966B52808F33500A6A426 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7C2966BD28092C1400A6A426 /* FedTaxBrackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FedTaxBrackets.swift; sourceTree = "<group>"; };
-		7C2966C028092D6000A6A426 /* StateTaxBrackets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTaxBrackets.swift; sourceTree = "<group>"; };
+		7C2966BD28092C1400A6A426 /* PTFedTax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFedTax.swift; sourceTree = "<group>"; };
+		7C2966C028092D6000A6A426 /* PTStateTax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTStateTax.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +74,8 @@
 		7C2966BF28092D3F00A6A426 /* TaxBrackets */ = {
 			isa = PBXGroup;
 			children = (
-				7C2966BD28092C1400A6A426 /* FedTaxBrackets.swift */,
-				7C2966C028092D6000A6A426 /* StateTaxBrackets.swift */,
+				7C2966BD28092C1400A6A426 /* PTFedTax.swift */,
+				7C2966C028092D6000A6A426 /* PTStateTax.swift */,
 				7C2966B22808F33500A6A426 /* Assets.xcassets */,
 			);
 			path = TaxBrackets;
@@ -151,9 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C2966BE28092C1400A6A426 /* FedTaxBrackets.swift in Sources */,
+				7C2966BE28092C1400A6A426 /* PTFedTax.swift in Sources */,
 				7C2966B12808F33300A6A426 /* ContentView.swift in Sources */,
-				7C2966C128092D6000A6A426 /* StateTaxBrackets.swift in Sources */,
+				7C2966C128092D6000A6A426 /* PTStateTax.swift in Sources */,
 				7C2966AF2808F33300A6A426 /* PostaxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

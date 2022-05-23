@@ -8,7 +8,7 @@
 import Foundation
 
 // State tax brackets, sorted alphabetically
-struct StateTaxBrackets {
+struct PTStateTax {
     
     // MARK: - Alabama
     struct Alabama {
