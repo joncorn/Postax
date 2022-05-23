@@ -809,6 +809,129 @@ struct PTStateTax {
         }
     }
     
+//    struct Hawaii2 {
+//
+//        static let bracketsTaxed: [Double] = [33.6, 76.8, 264, 307.2, 326.4, 345.6, 912, 948, 8415, 2250, 2500]
+//
+//        struct first {
+//            static let percent   = 0.014
+//            static let threshold = 2400.0
+//        }
+//        struct second {
+//            static let percent   = 0.032
+//            static let threshold = 4800.0
+//        }
+//        struct third {
+//            static let percent   = 0.055
+//            static let threshold = 9600.0
+//        }
+//        struct fourth {
+//            static let percent   = 0.064
+//            static let threshold = 14400.0
+//        }
+//        struct fifth {
+//            static let percent   = 0.068
+//            static let threshold = 19200.0
+//        }
+//        struct sixth {
+//            static let percent   = 0.072
+//            static let threshold = 24000.0
+//        }
+//        struct seventh {
+//            static let percent   = 0.076
+//            static let threshold = 36000.0
+//        }
+//        struct eighth {
+//            static let percent   = 0.079
+//            static let threshold = 48000.0
+//        }
+//        struct ninth {
+//            static let percent   = 0.0825
+//            static let threshold = 150000.0
+//        }
+//        struct tenth {
+//            static let percent   = 0.09
+//            static let threshold = 175000.0
+//        }
+//        struct eleventh {
+//            static let percent   = 0.10
+//            static let threshold = 200000.0
+//        }
+//        struct twelfth {
+//            static let precent   = 0.11
+//            static let threshold = 200000.0
+//        }
+//
+//        static func TaxAmount(from annual: Double) -> Double {
+//            var stateTax: Double = 0
+//
+//            switch annual {
+//            case _ where annual <= first.threshold:
+//                stateTax = annual * first.percent
+//                return stateTax
+//
+//            case _ where annual <= second.threshold:
+//                stateTax += Hawaii2.bracketsTaxed[0]
+//                stateTax += (annual - first.threshold) * second.percent
+//                return stateTax
+//
+//            case _ where annual <= third.threshold:
+//                Hawaii2.bracketsTaxed[0...1].forEach { stateTax += $0 }
+//                stateTax += (annual - second.threshold) * third.percent
+//                return stateTax
+//
+//            case _ where annual <= fourth.threshold:
+//                Hawaii2.bracketsTaxed[0...2].forEach { stateTax += $0 }
+//                stateTax += (annual - third.threshold) * fourth.percent
+//                return stateTax
+//
+//            case _ where annual <= fifth.threshold:
+//                Hawaii2.bracketsTaxed[0...3].forEach { stateTax += $0 }
+//                stateTax += (annual - fourth.threshold) * fifth.percent
+//                return stateTax
+//
+//            case _ where annual <= sixth.threshold:
+//                Hawaii2.bracketsTaxed[0...4].forEach { stateTax += $0 }
+//                stateTax += (annual - fifth.threshold) * sixth.percent
+//                return stateTax
+//
+//            case _ where annual <= seventh.threshold:
+//                Hawaii2.bracketsTaxed[0...5].forEach { stateTax += $0 }
+//                stateTax += (annual - sixth.threshold) * seventh.percent
+//                return stateTax
+//
+//            case _ where annual <= eighth.threshold:
+//                Hawaii2.bracketsTaxed[0...6].forEach { stateTax += $0 }
+//                stateTax += (annual - seventh.threshold) * eighth.percent
+//                return stateTax
+//
+//            case _ where annual <= ninth.threshold:
+//                Hawaii2.bracketsTaxed[0...7].forEach { stateTax += $0 }
+//                stateTax += (annual - eighth.threshold) * ninth.percent
+//                return stateTax
+//
+//            case _ where annual <= tenth.threshold:
+//                Hawaii2.bracketsTaxed[0...8].forEach { stateTax += $0 }
+//                stateTax += (annual - ninth.threshold) * tenth.percent
+//                return stateTax
+//
+//            case _ where annual <= eleventh.threshold:
+//                Hawaii2.bracketsTaxed[0...9].forEach { stateTax += $0 }
+//                stateTax += (annual - tenth.threshold) * eleventh.percent
+//                return stateTax
+//
+//            case _ where annual > twelfth.threshold:
+//                Hawaii2.bracketsTaxed[0...10].forEach { stateTax += $0 }
+//                stateTax += (annual - eleventh.threshold) * twelfth.precent
+//                return stateTax
+//
+//            default:
+//                stateTax = 0
+//                return stateTax
+//            }
+//        }
+//    }
+    
     // MARK: - Idaho
     struct Idaho {
         struct first {
