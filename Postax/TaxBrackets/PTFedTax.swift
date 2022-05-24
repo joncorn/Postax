@@ -13,6 +13,7 @@ struct PTFedTax {
     
     // Social security rate
     static let socialSecurityRate = 0.062
+    
     // Medicare rate
     static let medicareRate = 0.0145
     

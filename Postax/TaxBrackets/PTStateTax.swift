@@ -12,39 +12,41 @@ struct PTStateTax {
     
     // MARK: - Alabama
     struct Alabama {
+        
         struct first {
-            static let percent   = 0.02
-            static let threshold = 500.0
+            static let rate  = 0.02
+            static let cap   = 500.0
         }
         struct second {
-            static let percent   = 0.04
-            static let threshold = 3000.0
+            static let rate  = 0.04
+            static let cap   = 3000.0
         }
         struct third {
-            static let percent   = 0.05
-            static let threshold = 3000.0
+            static let rate  = 0.05
+            static let cap   = 3000.0
         }
         
-        static func TaxAmount(from annual: Double) -> Double {
+        static func TaxAmount(from income: Double) -> Double {
+            
             var firstTaxed  : Double = 0
             var secondTaxed : Double = 0
             var thirdTaxed  : Double = 0
             
             var stateTax: Double = 0
             
-            if annual <= first.threshold {
-                stateTax += annual * first.percent
+            if income <= first.cap {
+                stateTax += income * first.rate
                 
-            } else if annual <= second.threshold {
-                firstTaxed   = first.threshold * first.percent
-                secondTaxed  = (annual - first.threshold) * second.percent
+            } else if income <= second.cap {
+                firstTaxed   = first.cap * first.rate
+                secondTaxed  = (income - first.cap) * second.rate
                 
                 stateTax += firstTaxed + secondTaxed
                 
-            } else if annual > third.threshold {
-                firstTaxed   = first.threshold * first.percent
-                secondTaxed  = (second.threshold - first.threshold) * second.percent
-                thirdTaxed   = (annual - second.threshold) * third.percent
+            } else if income > third.cap {
+                firstTaxed   = first.cap * first.rate
+                secondTaxed  = (second.cap - first.cap) * second.rate
+                thirdTaxed   = (income - second.cap) * third.rate
                 
                 stateTax += firstTaxed + secondTaxed + thirdTaxed
             }
