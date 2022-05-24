@@ -118,6 +118,9 @@ struct PTStateTax {
     
     // MARK: - Arkansas
     struct Arkansas {
+        
+        static let bracketsDict: [String:Double] = ["firstRate":0.02, "firstCap":4300.0, "secondRate":0.04, "secondCap":8500.0, "thirdRate":0.055, "thirdCap":8500.0]
+        
         struct first {
             static let percent   = 0.02
             static let threshold = 4300.0
