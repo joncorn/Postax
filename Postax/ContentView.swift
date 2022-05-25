@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var grossIncome: Double = 0.0
+    
     var body: some View {
-        Text("hello")
+        Text("cool")
+        
     }
 }
 
