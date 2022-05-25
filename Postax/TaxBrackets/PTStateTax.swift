@@ -1,8 +1,8 @@
 //
-//  StateTaxBrackets.swift
+//  PTStateTax.swift
 //  Postax
 //
-//  Created by Jon Corn on 4/14/22.
+//  Created by Jon Corn on 5/24/22.
 //
 
 import Foundation
@@ -13,45 +13,46 @@ struct PTStateTax {
     // MARK: - Alabama
     struct Alabama {
         
-        struct first {
+        // Maximum tax amount per tax bracket
+        static let bracketsTaxed: [Double] = [10, 100]
+        
+        // State tax rates and cap for each bracket
+        struct firstBracket {
             static let rate  = 0.02
             static let cap   = 500.0
         }
-        struct second {
+        struct secondBracket {
             static let rate  = 0.04
             static let cap   = 3000.0
         }
-        struct third {
+        struct thirdBracket {
             static let rate  = 0.05
-            static let cap   = 3000.0
         }
         
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from income: Double) -> Double {
-            
-            var firstTaxed  : Double = 0
-            var secondTaxed : Double = 0
-            var thirdTaxed  : Double = 0
-            
+     
             var stateTax: Double = 0
             
-            if income <= first.cap {
-                stateTax += income * first.rate
+            switch income {
+            case _ where income <= firstBracket.cap:
+                stateTax += income * firstBracket.rate
+                return stateTax
                 
-            } else if income <= second.cap {
-                firstTaxed   = first.cap * first.rate
-                secondTaxed  = (income - first.cap) * second.rate
+            case _ where income <= secondBracket.cap:
+                stateTax += bracketsTaxed[0]
+                stateTax += (income - firstBracket.cap) * secondBracket.rate
+                return stateTax
                 
-                stateTax += firstTaxed + secondTaxed
+            case _ where income > secondBracket.cap:
+                bracketsTaxed[0...1].forEach { stateTax += $0 }
+                stateTax += (income - secondBracket.cap) * thirdBracket.rate
+                return stateTax
                 
-            } else if income > third.cap {
-                firstTaxed   = first.cap * first.rate
-                secondTaxed  = (second.cap - first.cap) * second.rate
-                thirdTaxed   = (income - second.cap) * third.rate
-                
-                stateTax += firstTaxed + secondTaxed + thirdTaxed
+            default:
+                stateTax = 0
+                return stateTax
             }
-            
-            return stateTax
         }
     }
     
@@ -2892,4 +2893,3 @@ struct PTStateTax {
     
     
 }
-
