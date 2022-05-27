@@ -438,7 +438,6 @@ struct PTStateTax {
     
     // MARK: - Georgia
     struct Georgia {
-        
         struct firstBracket {
             static let rate  = 0.01
             static let cap   = 750.0
@@ -688,11 +687,7 @@ struct PTStateTax {
         }
         
         static func TaxAmount(from grossIncome: Double) -> Double {
-            var stateTax: Double = 0
-            
-            stateTax = grossIncome * firstBracket.rate
-            
-            return stateTax
+            return grossIncome * firstBracket.rate
         }
     }
     
@@ -703,11 +698,7 @@ struct PTStateTax {
         }
         
         static func TaxAmount(from grossIncome: Double) -> Double {
-            var stateTax: Double = 0
-            
-            stateTax = grossIncome * firstBracket.rate
-            
-            return stateTax
+            return grossIncome * firstBracket.rate
         }
     }
     
@@ -851,59 +842,57 @@ struct PTStateTax {
     
     // MARK: - Kentucky
     struct Kentucky {
-        struct first {
-            static let percent   = 0.05
+        struct firstBracket {
+            static let rate   = 0.05
         }
         
-        static func TaxAmount(from annual: Double) -> Double {
+        static func TaxAmount(from grossIncome: Double) -> Double {
             
-            return annual * first.percent
+            return grossIncome * firstBracket.rate
             
         }
     }
     
     // MARK: - Louisiana
     struct Louisiana {
-        struct first {
-            static let percent   = 0.0185
-            static let threshold = 12500.0
+        struct firstBracket {
+            static let rate  = 0.0185
+            static let cap   = 12500.0
         }
-        struct second {
-            static let percent   = 0.0350
-            static let threshold = 50000.0
+        struct secondBracket {
+            static let rate  = 0.0350
+            static let cap   = 50000.0
         }
-        struct third {
-            static let percent   = 0.0425
-            static let threshold = 50000.0
+        struct thirdBracket {
+            static let rate  = 0.0425
+            static let cap   = 50000.0
         }
         
-        static func TaxAmount(from annual: Double) -> Double {
-            var firstTaxed  : Double = 0
-            var secondTaxed : Double = 0
-            var thirdTaxed  : Double = 0
-            
+        static let bracketsTaxed: [Double] = [231.25, 1312.5, 40375]
+        
+        static func TaxAmount(from grossIncome: Double) -> Double {
+     
             var stateTax: Double = 0
             
-            if annual <= first.threshold {
-                
-                stateTax += annual * first.percent
-                
-            } else if annual <= second.threshold {
-                firstTaxed   = first.threshold * first.percent
-                secondTaxed  = (annual - first.threshold) * second.percent
-                
-                stateTax += firstTaxed + secondTaxed
-                
-            } else if annual > third.threshold {
-                firstTaxed   = first.threshold * first.percent
-                secondTaxed  = (second.threshold - first.threshold) * second.percent
-                thirdTaxed   = (annual - second.threshold) * third.percent
-                
-                stateTax += firstTaxed + secondTaxed + thirdTaxed
-                
-            }
+            switch grossIncome {
+            case _ where grossIncome <= firstBracket.cap:
+                stateTax = grossIncome * firstBracket.rate
+                return stateTax
             
-            return stateTax
+            case _ where grossIncome <= secondBracket.cap:
+                stateTax += bracketsTaxed[0]
+                stateTax += (grossIncome - firstBracket.cap) * secondBracket.rate
+                return stateTax
+            
+            case _ where grossIncome > thirdBracket.cap:
+                bracketsTaxed[0...1].forEach { stateTax += $0 }
+                stateTax += (grossIncome - secondBracket.cap) * thirdBracket.rate
+                return stateTax
+            
+            default:
+                stateTax = 0
+                return stateTax
+            }
         }
     }
     
