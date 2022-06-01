@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var grossIncome: Double = 1000000
+    @State private var grossIncome: Double = 10000
     
     var body: some View {
-        Text("test: \(PTStateTax.Arizona.TaxAmount(from: grossIncome))")
+        Text("test: \(PTStateTax.Vermont.TaxAmount(from: grossIncome))")
         
     }
 }

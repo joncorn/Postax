@@ -12,7 +12,6 @@
 		7C2966B32808F33500A6A426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2966B22808F33500A6A426 /* Assets.xcassets */; };
 		7C2966B62808F33500A6A426 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C2966B52808F33500A6A426 /* Preview Assets.xcassets */; };
 		7C2966BE28092C1400A6A426 /* PTFedTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2966BD28092C1400A6A426 /* PTFedTax.swift */; };
-		7C6E0E29283B6EFB00E8973A /* StateTaxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E0E28283B6EFB00E8973A /* StateTaxController.swift */; };
 		7C6E0E2B283DE27600E8973A /* PTStateTax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E0E2A283DE27600E8973A /* PTStateTax.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,7 +22,6 @@
 		7C2966B22808F33500A6A426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C2966B52808F33500A6A426 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C2966BD28092C1400A6A426 /* PTFedTax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFedTax.swift; sourceTree = "<group>"; };
-		7C6E0E28283B6EFB00E8973A /* StateTaxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTaxController.swift; sourceTree = "<group>"; };
 		7C6E0E2A283DE27600E8973A /* PTStateTax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTStateTax.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,9 +55,9 @@
 		7C2966AD2808F33300A6A426 /* Postax */ = {
 			isa = PBXGroup;
 			children = (
-				7C2966BF28092D3F00A6A426 /* TaxBrackets */,
-				7C2966AE2808F33300A6A426 /* PostaxApp.swift */,
-				7C2966B02808F33300A6A426 /* ContentView.swift */,
+				7C6E0E2C2845AB9600E8973A /* Screens */,
+				7C6E0E2D2845ABD100E8973A /* Controllers */,
+				7C2966B22808F33500A6A426 /* Assets.xcassets */,
 				7C2966B42808F33500A6A426 /* Preview Content */,
 			);
 			path = Postax;
@@ -78,10 +76,25 @@
 			children = (
 				7C2966BD28092C1400A6A426 /* PTFedTax.swift */,
 				7C6E0E2A283DE27600E8973A /* PTStateTax.swift */,
-				7C2966B22808F33500A6A426 /* Assets.xcassets */,
-				7C6E0E28283B6EFB00E8973A /* StateTaxController.swift */,
 			);
 			path = TaxBrackets;
+			sourceTree = "<group>";
+		};
+		7C6E0E2C2845AB9600E8973A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				7C2966AE2808F33300A6A426 /* PostaxApp.swift */,
+				7C2966B02808F33300A6A426 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		7C6E0E2D2845ABD100E8973A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C2966BF28092D3F00A6A426 /* TaxBrackets */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +170,6 @@
 				7C6E0E2B283DE27600E8973A /* PTStateTax.swift in Sources */,
 				7C2966BE28092C1400A6A426 /* PTFedTax.swift in Sources */,
 				7C2966B12808F33300A6A426 /* ContentView.swift in Sources */,
-				7C6E0E29283B6EFB00E8973A /* StateTaxController.swift in Sources */,
 				7C2966AF2808F33300A6A426 /* PostaxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
