@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var grossIncome: Double = 10000
+    @State private var grossIncome: Double = 125000
     
     var body: some View {
-        Text("test: \(PTStateTax.Vermont.TaxAmount(from: grossIncome))")
-        
+        VStack {
+            Text("State: \(PTStateTax.California.TaxAmount(from: grossIncome))")
+            Text("Federal: \(PTFedTax.FedTaxAmount(from: grossIncome))")
+            Text("Total Post-Tax: \(grossIncome - PTStateTax.California.TaxAmount(from: grossIncome) - PTFedTax.FedTaxAmount(from: grossIncome))")
+            Text("Paycheck: \((grossIncome - PTStateTax.California.TaxAmount(from: grossIncome) - PTFedTax.FedTaxAmount(from: grossIncome)) / 26)")
+        }
     }
 }
 
