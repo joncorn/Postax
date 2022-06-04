@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    // test income
     @State private var grossIncome: Double = 60000
     @State private var statelol = "California"
     
@@ -21,6 +22,7 @@ struct ContentView: View {
             Text("Total PostTax: \(grossIncome - PTStateTax.California.TaxAmount(from: grossIncome) - PTFedTax.FedTaxAmount(from: grossIncome))")
             
             Text("Paycheck: \((grossIncome - PTContentViewModel.stateTaxAmount(from: statelol, with: grossIncome) - PTFedTax.FedTaxAmount(from: grossIncome)) / 26)")
+            
         }
     }
 }
