@@ -1173,6 +1173,8 @@ struct PTStateTax {
     
     // MARK: - Mississippi
     struct Mississippi {
+        
+        // State tax rates and cap for each bracket
         struct zerothBracket {
             static let rate  = 0.0
             static let cap   = 5000.00
@@ -1185,8 +1187,12 @@ struct PTStateTax {
             static let rate  = 0.05
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [0.0, 400]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1215,6 +1221,8 @@ struct PTStateTax {
     
     // MARK: - Missouri
     struct Missouri {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.015
             static let cap   = 1088.0
@@ -1251,8 +1259,12 @@ struct PTStateTax {
             static let rate  = 0.054
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [16.32, 21.76, 27.2, 32.64, 38.08, 43.52, 48.96, 54.40]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1311,6 +1323,8 @@ struct PTStateTax {
     
     // MARK: - Montana
     struct Montana {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.01
             static let cap   = 3100.0
@@ -1339,8 +1353,12 @@ struct PTStateTax {
             static let rate  = 0.0675
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [31, 48, 87, 120, 160, 252]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1389,6 +1407,8 @@ struct PTStateTax {
     
     // MARK: - Nebraska
     struct Nebraska {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0246
             static let cap   = 3440.0
@@ -1405,8 +1425,12 @@ struct PTStateTax {
             static let rate  = 0.0684
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [84.62, 601.97, 630.76]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1438,18 +1462,10 @@ struct PTStateTax {
         }
     }
     
-    // MARK: - Nevada
-    struct Nevada {
-        static let none = 0.0
-    }
-    
-    // MARK: - New Hampshire
-    struct NewHampshire {
-        static let none = 0.0
-    }
-    
     // MARK: - New Jersey
     struct NewJersey {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.014
             static let cap   = 20000.0
@@ -1478,8 +1494,12 @@ struct PTStateTax {
             static let rate  = 0.1075
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [280.0, 262.5, 175.0, 1933.75, 27072.5, 44850.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1528,6 +1548,8 @@ struct PTStateTax {
     
     // MARK: - New Mexico
     struct NewMexico {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.017
             static let cap   = 5500.0
@@ -1548,8 +1570,12 @@ struct PTStateTax {
             static let rate  = 0.059
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [93.5, 176.0, 235.0, 9506.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1588,6 +1614,8 @@ struct PTStateTax {
     
     // MARK: - New York
     struct NewYork {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.04
             static let cap   = 8500.0
@@ -1624,8 +1652,12 @@ struct PTStateTax {
             static let rate  = 0.109
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [340.0, 144.0, 115.5, 3904.88, 8421.88, 59057.28, 378516.43, 2060000.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1684,10 +1716,13 @@ struct PTStateTax {
     
     // MARK: - North Carolina
     struct NorthCarolina {
+        
+        // State tax rate
         struct firstBracket {
             static let rate  = 0.0499
         }
         
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             return firstBracket.rate * grossIncome
         }
@@ -1695,6 +1730,8 @@ struct PTStateTax {
     
     // MARK: - North Dakota
     struct NorthDakota {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.011
             static let cap   = 40525.0
@@ -1715,8 +1752,12 @@ struct PTStateTax {
             static let rate  = 0.029
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [445.78, 1174.53, 2419.25, 6344.58]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1755,6 +1796,8 @@ struct PTStateTax {
     
     // MARK: - Ohio
     struct Ohio {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.02765
             static let cap   = 44250.0
@@ -1771,8 +1814,12 @@ struct PTStateTax {
             static let rate  = 0.0399
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [1223.51, 1425.89, 818.74]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1806,6 +1853,8 @@ struct PTStateTax {
     
     // MARK: - Oklahoma
     struct Oklahoma {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0025
             static let cap   = 1000.0
@@ -1830,8 +1879,12 @@ struct PTStateTax {
             static let rate  = 0.0475
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [2.5, 11.25, 21.88, 31.63, 86.25]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1875,6 +1928,8 @@ struct PTStateTax {
     
     // MARK: - Oregon
     struct Oregon {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0475
             static let cap   = 3650.0
@@ -1891,8 +1946,12 @@ struct PTStateTax {
             static let rate  = 0.0990
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [173.38, 374.63, 10132.5]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1926,10 +1985,13 @@ struct PTStateTax {
     
     // MARK: - Pennsylvania
     struct Pennsylvania {
+        
+        // State tax rate
         struct firstBracket {
             static let rate  = 0.0307
         }
         
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             return grossIncome * firstBracket.rate
         }
@@ -1937,6 +1999,8 @@ struct PTStateTax {
     
     // MARK: - Rhode Island
     struct RhodeIsland {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0375
             static let cap   = 68200.0
@@ -1949,8 +2013,12 @@ struct PTStateTax {
             static let rate  = 0.0599
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [2557.5, 4125.38]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -1979,6 +2047,8 @@ struct PTStateTax {
     
     // MARK: - South Carolina
     struct SouthCarolina {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0
             static let cap   = 3200.0
@@ -2003,8 +2073,12 @@ struct PTStateTax {
             static let rate  = 0.07
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [0.0, 96.0, 128.4, 160.0, 193.2]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -2046,33 +2120,15 @@ struct PTStateTax {
         }
     }
     
-    // MARK: - South Dakota
-    struct SouthDakota {
-        struct firstBracket {
-            static let none = 0.0
-        }
-    }
-    
-    // MARK: - Tennessee
-    struct Tennessee {
-        struct firstBracket {
-            static let none = 0.0
-        }
-    }
-    
-    // MARK: - Texas
-    struct Texas {
-        struct firstBracket {
-            static let none = 0.0
-        }
-    }
-    
     // MARK: - Utah
     struct Utah {
+        
+        // State tax rate
         struct firstBracket {
             static let rate = 0.0495
         }
         
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             return grossIncome * firstBracket.rate
         }
@@ -2080,6 +2136,8 @@ struct PTStateTax {
     
     // MARK: - Vermont
     struct Vermont {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0335
             static let cap   = 40950.0
@@ -2096,8 +2154,12 @@ struct PTStateTax {
             static let rate  = 0.0875
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [1371.83, 3844.5, 8189.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -2131,6 +2193,8 @@ struct PTStateTax {
     
     // MARK: - Virginia
     struct Virginia {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.02
             static let cap   = 3000.0
@@ -2147,8 +2211,12 @@ struct PTStateTax {
             static let rate  = 0.0575
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [60.0, 60.0, 600.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -2180,15 +2248,10 @@ struct PTStateTax {
         }
     }
     
-    // MARK: - Washington
-    struct Washington {
-        struct firstBracket {
-            static let none = 0.0
-        }
-    }
-    
     // MARK: - West Virginia
     struct WestVirginia {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.03
             static let cap   = 10000.0
@@ -2209,8 +2272,12 @@ struct PTStateTax {
             static let rate  = 0.065
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [300.0, 600.0, 675.0, 1200.0]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -2249,6 +2316,8 @@ struct PTStateTax {
     
     // MARK: - Wisconsin
     struct Wisconsin {
+        
+        // State tax rates and cap for each bracket
         struct firstBracket {
             static let rate  = 0.0354
             static let cap   = 12760.0
@@ -2265,8 +2334,12 @@ struct PTStateTax {
             static let rate  = 0.0575
         }
         
+        
+        // Maximum tax amount per tax bracket
         static let bracketsTaxed: [Double] = [451.70, 593.34, 13537.79]
         
+        
+        // Returns total state tax amount calculated from specified income
         static func TaxAmount(from grossIncome: Double) -> Double {
             
             var stateTax: Double = 0
@@ -2295,13 +2368,6 @@ struct PTStateTax {
                 stateTax = 0
                 return stateTax
             }
-        }
-    }
-    
-    // MARK: - Wyoming
-    struct Wyoming {
-        struct firstBracket {
-            static let none = 0.0
         }
     }
 }
