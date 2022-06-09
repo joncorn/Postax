@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     // test income
-    @State private var grossIncome: Double = 60000
+    @State private var grossIncome: Double = 125000
     @State private var statelol = "California"
     
     var body: some View {
