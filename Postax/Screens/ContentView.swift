@@ -17,6 +17,7 @@ struct ContentView: View {
         VStack {
             
             // todo: put a textfield tha tyou can demo in an app
+            // more comments lol
             Text("State: \(PTContentViewModel.stateTaxAmount(from: statelol, with: grossIncome) / 26)")
             
             Text("Federal: \(PTFedTax.FedTaxAmount(from: grossIncome) / 26)")
